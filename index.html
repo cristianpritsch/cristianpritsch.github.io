@@ -15,6 +15,356 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+  .project-subtitle{
+
+max-width:850px;
+
+margin:auto;
+
+margin-bottom:70px;
+
+text-align:center;
+
+font-size:18px;
+
+color:#a9bfd4;
+
+line-height:1.8;
+
+}
+
+.project-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
+}
+
+.project-card{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+padding:35px;
+
+border-radius:25px;
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.project-card:hover{
+
+transform:translateY(-12px);
+
+}
+
+.project-icon{
+
+width:70px;
+
+height:70px;
+
+border-radius:18px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+margin-bottom:25px;
+
+background:linear-gradient(135deg,#00d4ff,#00ffb7);
+
+color:#08121f;
+
+}
+
+.project-card h3{
+
+font-size:28px;
+
+margin-bottom:18px;
+
+}
+
+.project-card p{
+
+line-height:1.9;
+
+color:#c4d3df;
+
+margin-bottom:25px;
+
+}
+
+.tech{
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin-bottom:25px;
+
+}
+
+.tech span{
+
+padding:8px 15px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.08);
+
+font-size:14px;
+
+color:#00d4ff;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.status{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:12px 18px;
+
+border-radius:40px;
+
+font-weight:600;
+
+margin-top:auto;
+
+}
+
+.finished{
+
+background:rgba(46,204,113,.15);
+
+color:#2ecc71;
+
+border:1px solid #2ecc71;
+
+}
+
+.progress{
+
+background:rgba(241,196,15,.15);
+
+color:#f1c40f;
+
+border:1px solid #f1c40f;
+
+}
+  /* Scroll Animation */
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(70px);
+
+transition:1s;
+
+}
+
+.visible{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+/* Back Button */
+
+#topBtn{
+
+position:fixed;
+
+right:35px;
+
+bottom:35px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#00d4ff,#00ffb7);
+
+font-size:22px;
+
+cursor:pointer;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(0,212,255,.35);
+
+z-index:9999;
+
+}
+
+#topBtn.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+#topBtn:hover{
+
+transform:translateY(-6px);
+
+}
+
+
+/* Hover */
+
+.project-card:hover,
+.skill-card:hover,
+.card:hover,
+.mini-card:hover{
+
+transform:translateY(-12px) scale(1.02);
+
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#08121f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:linear-gradient(#00d4ff,#00ffb7);
+
+border-radius:30px;
+
+}
+
+
+/* Selection */
+
+::selection{
+
+background:#00d4ff;
+
+color:#08121f;
+
+}
+
+
+/* Footer */
+
+footer{
+
+background:#050b14;
+
+padding:70px;
+
+margin-top:120px;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+footer h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+footer p{
+
+color:#9eb3c8;
+
+line-height:2;
+
+}
+
+
+/* Buttons Animation */
+
+.btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.btn::before{
+
+content:"";
+
+position:absolute;
+
+left:-120%;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(255,255,255,.25);
+
+transform:skewX(-30deg);
+
+transition:.6s;
+
+}
+
+.btn:hover::before{
+
+left:140%;
+
+}
+  
 <style>
 
 :root{
@@ -1072,6 +1422,218 @@ background:linear-gradient(90deg,#00d4ff,#00ffb7);
 }
 
 </style>
+  <!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<h2 class="title">Meine Projekte</h2>
+
+<p class="project-subtitle">
+
+Ich lerne kontinuierlich Webentwicklung und Programmiersprachen durch eigene Projekte.
+Jedes Projekt hilft mir dabei, praktische Erfahrungen zu sammeln und meine Kenntnisse zu erweitern.
+
+</p>
+
+<div class="project-grid">
+
+<!-- Portfolio -->
+
+<div class="project-card">
+
+<div class="project-icon">
+<i class="fa-solid fa-laptop-code"></i>
+</div>
+
+<h3>Portfolio Website</h3>
+
+<p>
+
+Entwicklung einer modernen Portfolio-Website mit HTML, CSS und JavaScript.
+Responsive Design, Animationen, Lebenslauf-Download und mobile Optimierung.
+
+</p>
+
+<div class="tech">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+<div class="status finished">
+
+🟢 Abgeschlossen
+
+</div>
+
+</div>
+
+
+<!-- Notenrechner -->
+
+<div class="project-card">
+
+<div class="project-icon">
+<i class="fa-solid fa-calculator"></i>
+</div>
+
+<h3>Notenrechner</h3>
+
+<p>
+
+Eine Webanwendung zur Berechnung von Notendurchschnitten.
+Mehrere Noten können eingegeben werden, der Durchschnitt wird automatisch berechnet.
+
+</p>
+
+<div class="tech">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+<div class="status progress">
+
+🟡 In Entwicklung
+
+</div>
+
+</div>
+
+
+<!-- Passwortgenerator -->
+
+<div class="project-card">
+
+<div class="project-icon">
+<i class="fa-solid fa-key"></i>
+</div>
+
+<h3>Passwortgenerator</h3>
+
+<p>
+
+Erzeugt sichere Passwörter mit frei wählbarer Länge,
+Zahlen, Sonderzeichen sowie Groß- und Kleinbuchstaben.
+
+</p>
+
+<div class="tech">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+<div class="status progress">
+
+🟡 In Entwicklung
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <!-- Back To Top -->
+
+<button id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<script>
+
+// Back to top
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topBtn.classList.add("show");
+
+}else{
+
+topBtn.classList.remove("show");
+
+}
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+
+// Scroll Animation
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+section.classList.add("hidden");
+
+observer.observe(section);
+
+});
+
+
+// Typing Effect
+
+const title=document.querySelector(".hero-text h3");
+
+const text="Willkommen auf meinem Portfolio";
+
+let i=0;
+
+title.innerHTML="";
+
+function type(){
+
+if(i<text.length){
+
+title.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,60);
+
+}
+
+}
+
+type();
+
+</script>
   
 </body>
 </html>
