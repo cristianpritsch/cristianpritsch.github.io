@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cristian Pritsch | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+:root{
+
+--bg:#08121f;
+--bg2:#101b2d;
+--card:rgba(255,255,255,.08);
+
+--text:#ffffff;
+--text2:#c9d4df;
+
+--main:#00d4ff;
+--main2:#00ffb7;
+
+--shadow:0 15px 45px rgba(0,0,0,.4);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+
+background:linear-gradient(135deg,#08121f,#101b2d,#16253e);
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+height:600px;
+
+background:#00d4ff30;
+
+filter:blur(180px);
+
+left:-200px;
+top:-150px;
+
+animation:float1 8s infinite alternate;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#00ffb730;
+
+filter:blur(170px);
+
+right:-120px;
+bottom:-120px;
+
+animation:float2 10s infinite alternate;
+
+z-index:-2;
+
+}
+
+@keyframes float1{
+
+to{
+
+transform:translateY(120px) translateX(120px);
+
+}
+
+}
+
+@keyframes float2{
+
+to{
+
+transform:translateY(-100px) translateX(-100px);
+
+}
+
+}
+
+nav{
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:22px 9%;
+
+background:rgba(10,15,25,.55);
+
+backdrop-filter:blur(18px);
+
+z-index:1000;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:800;
+
+background:linear-gradient(90deg,var(--main),var(--main2));
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:40px;
+
+list-style:none;
+
+}
+
+nav ul a{
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+nav ul a:hover{
+
+color:var(--main);
+
+}
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:0 10%;
+
+}
+
+.hero-content{
+
+display:grid;
+
+grid-template-columns:1.2fr .8fr;
+
+gap:70px;
+
+align-items:center;
+
+width:100%;
+
+}
+
+.hero-text h3{
+
+color:var(--main);
+
+font-size:22px;
+
+margin-bottom:15px;
+
+}
+
+.hero-text h1{
+
+font-size:72px;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
+}
+
+.hero-text p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:var(--text2);
+
+margin-bottom:40px;
+
+}
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:16px 34px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.35s;
+
+}
+
+.primary{
+
+background:linear-gradient(90deg,var(--main),var(--main2));
+
+color:black;
+
+}
+
+.secondary{
+
+border:2px solid var(--main);
+
+color:white;
+
+}
+
+.btn:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 12px 30px rgba(0,212,255,.3);
+
+}
+
+.profile{
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.circle{
+
+width:390px;
+
+height:390px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#00d4ff,#00ffb7);
+
+padding:7px;
+
+animation:rotate 12s linear infinite;
+
+}
+
+.circle-inner{
+
+width:100%;
+height:100%;
+
+border-radius:50%;
+
+background:#0e1726;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:120px;
+
+}
+
+@keyframes rotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.stats{
+
+margin-top:70px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+.stat{
+
+background:var(--card);
+
+backdrop-filter:blur(18px);
+
+padding:28px;
+
+border-radius:22px;
+
+text-align:center;
+
+box-shadow:var(--shadow);
+
+}
+
+.stat h2{
+
+font-size:42px;
+
+background:linear-gradient(90deg,var(--main),var(--main2));
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+margin-bottom:10px;
+
+}
+
+section{
+
+padding:120px 10%;
+
+}
+
+.title{
+
+font-size:46px;
+
+margin-bottom:50px;
+
+text-align:center;
+
+}
+
+.about{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:50px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.07);
+
+backdrop-filter:blur(20px);
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.card h3{
+
+margin-bottom:20px;
+
+font-size:30px;
+
+color:var(--main);
+
+}
+
+.card p{
+
+line-height:2;
+
+color:var(--text2);
+
+}
+
+@media(max-width:950px){
+
+.hero-content{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-text h1{
+
+font-size:48px;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+.circle{
+
+width:280px;
+height:280px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">CP</div>
+
+<ul>
+
+<li><a href="#about">Über mich</a></li>
+
+<li><a href="#experience">Praktika</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#contact">Kontakt</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-text">
+
+<h3>Willkommen auf meinem Portfolio</h3>
+
+<h1>Cristian<br>Pritsch</h1>
+
+<p>
+
+Schüler mit wirtschaftlichem Schwerpunkt und großem Interesse an Informationstechnologie, Digitalisierung und Softwareentwicklung. Durch freiwillige Praktika konnte ich bereits praktische Erfahrungen sammeln und arbeite kontinuierlich daran, meine technischen Fähigkeiten auszubauen.
+
+</p>
+
+<div class="buttons">
+
+<a href="#about" class="btn primary">
+
+Mehr erfahren
+
+</a>
+
+<a href="Lebenslauf.pdf" class="btn secondary" download>
+
+Lebenslauf
+
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<h2>3+</h2>
+
+<p>Praktika</p>
+
+</div>
+
+<div class="stat">
+
+<h2>4</h2>
+
+<p>Sprachen</p>
+
+</div>
+
+<div class="stat">
+
+<h2>100%</h2>
+
+<p>Motivation</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="profile">
+
+<div class="circle">
+
+<div class="circle-inner">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">
+
+Über mich
+
+</h2>
+
+<div class="about">
+
+<div class="card">
+
+<h3>Wer ich bin</h3>
+
+<p>
+
+Ich besuche das Gymnasium Villa Elisabeth mit wirtschaftlichem Schwerpunkt und interessiere mich besonders für Informationstechnologie, künstliche Intelligenz, Digitalisierung und Softwareentwicklung. Neue Technologien motivieren mich, kontinuierlich dazuzulernen und praktische Erfahrungen zu sammeln.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Mein Ziel</h3>
+
+<p>
+
+Mein Ziel ist es, meine Kenntnisse im IT-Bereich weiter auszubauen und an spannenden Projekten mitzuwirken. Ich arbeite zuverlässig, lerne schnell und freue mich darauf, praktische Erfahrungen in der Softwareentwicklung und digitalen Wirtschaft zu sammeln.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
