@@ -1418,125 +1418,18 @@ transition:.6s;
 
 left:140%;
 
-}
- #loader{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:#08121f;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:99999;
-
-transition:opacity .8s;
-
+#background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background:#08121f;
 }
 
-.loader-content{
-
-text-align:center;
-
-}
-
-.loader-content img{
-
-width:170px;
-
-height:170px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #00d4ff;
-
-box-shadow:0 0 35px rgba(0,212,255,.45);
-
-animation:float 3s infinite ease-in-out;
-
-}
-
-.loader-content h1{
-
-margin-top:25px;
-
-font-size:42px;
-
-}
-
-.loader-content p{
-
-margin:15px 0 30px;
-
-color:#9eb3c8;
-
-}
-
-.loading-bar{
-
-width:300px;
-
-height:8px;
-
-background:#183044;
-
-border-radius:50px;
-
-overflow:hidden;
-
-margin:auto;
-
-}
-
-.loading-fill{
-
-height:100%;
-
-width:0;
-
-background:linear-gradient(90deg,#00d4ff,#00ffb7);
-
-animation:load 2.2s forwards;
-
-}
-
-@keyframes load{
-
-to{
-
-width:100%;
-
-}
-
-}
-
-@keyframes float{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
+body{
+    background:transparent;
 }
   
 </style>
@@ -1698,79 +1591,109 @@ behavior:"smooth"
 });
 
 };
+<script>
 
+const canvas = document.getElementById("background");
+const ctx = canvas.getContext("2d");
 
-// Scroll Animation
+let w,h;
+let particles=[];
 
-const observer=new IntersectionObserver((entries)=>{
+function resize(){
+    w=canvas.width=window.innerWidth;
+    h=canvas.height=window.innerHeight;
+}
 
-entries.forEach(entry=>{
+window.addEventListener("resize",resize);
+resize();
 
-if(entry.isIntersecting){
+class Particle{
 
-entry.target.classList.add("visible");
+    constructor(){
+
+        this.x=Math.random()*w;
+        this.y=Math.random()*h;
+
+        this.vx=(Math.random()-0.5)*0.3;
+        this.vy=(Math.random()-0.5)*0.3;
+
+        this.r=Math.random()*2+1;
+
+    }
+
+    move(){
+
+        this.x+=this.vx;
+        this.y+=this.vy;
+
+        if(this.x<0||this.x>w)this.vx*=-1;
+        if(this.y<0||this.y>h)this.vy*=-1;
+
+    }
+
+    draw(){
+
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.fillStyle="rgba(0,212,255,.8)";
+        ctx.fill();
+
+    }
 
 }
 
-});
+for(let i=0;i<90;i++){
 
-});
-
-document.querySelectorAll("section").forEach(section=>{
-
-section.classList.add("hidden");
-
-observer.observe(section);
-
-});
-
-
-// Typing Effect
-
-const title=document.querySelector(".hero-text h3");
-
-const text="Willkommen auf meinem Portfolio";
-
-let i=0;
-
-title.innerHTML="";
-
-function type(){
-
-if(i<text.length){
-
-title.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,60);
+    particles.push(new Particle());
 
 }
 
+function animate(){
+
+    ctx.clearRect(0,0,w,h);
+
+    for(let p of particles){
+
+        p.move();
+        p.draw();
+
+    }
+
+    for(let i=0;i<particles.length;i++){
+
+        for(let j=i+1;j<particles.length;j++){
+
+            let dx=particles[i].x-particles[j].x;
+            let dy=particles[i].y-particles[j].y;
+
+            let dist=Math.sqrt(dx*dx+dy*dy);
+
+            if(dist<130){
+
+                ctx.beginPath();
+
+                ctx.moveTo(particles[i].x,particles[i].y);
+
+                ctx.lineTo(particles[j].x,particles[j].y);
+
+                ctx.strokeStyle="rgba(0,212,255,"+(1-dist/130)*0.18+")";
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+    requestAnimationFrame(animate);
+
 }
 
-type();
+animate();
 
 </script>
-  <div id="loader">
-
-<div class="loader-content">
-
-<img src="profil.jpg" alt="Cristian Pritsch">
-
-<h1>Cristian Pritsch</h1>
-
-<p>Portfolio wird geladen...</p>
-
-<div class="loading-bar">
-
-<div class="loading-fill"></div>
-
-</div>
-
-</div>
-
-</div>
   
 </body>
+  <canvas id="background"></canvas>
 </html>
