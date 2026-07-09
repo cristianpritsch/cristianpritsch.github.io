@@ -1,1555 +1,40 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cristian Pritsch | Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
-:root{
-
---bg:#08121f;
---bg2:#101b2d;
---card:rgba(255,255,255,.08);
-
---text:#ffffff;
---text2:#c9d4df;
-
---main:#00d4ff;
---main2:#00ffb7;
-
---shadow:0 15px 45px rgba(0,0,0,.4);
-
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-
-font-family:Poppins,sans-serif;
-
-background:linear-gradient(135deg,#08121f,#101b2d,#16253e);
-
-color:white;
-
-overflow-x:hidden;
-
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:#fff;
+    line-height:1.7;
 }
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-width:600px;
-height:600px;
-
-background:#00d4ff30;
-
-filter:blur(180px);
-
-left:-200px;
-top:-150px;
-
-animation:float1 8s infinite alternate;
-
-z-index:-2;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-width:500px;
-height:500px;
-
-background:#00ffb730;
-
-filter:blur(170px);
-
-right:-120px;
-bottom:-120px;
-
-animation:float2 10s infinite alternate;
-
-z-index:-2;
-
-}
-
-@keyframes float1{
-
-to{
-
-transform:translateY(120px) translateX(120px);
-
-}
-
-}
-
-@keyframes float2{
-
-to{
-
-transform:translateY(-100px) translateX(-100px);
-
-}
-
-}
-
-nav{
-
-position:fixed;
-
-top:0;
-
-width:100%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:22px 9%;
-
-background:rgba(10,15,25,.55);
-
-backdrop-filter:blur(18px);
-
-z-index:1000;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.logo{
-
-font-size:30px;
-
-font-weight:800;
-
-background:linear-gradient(90deg,var(--main),var(--main2));
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-nav ul{
-
-display:flex;
-
-gap:40px;
-
-list-style:none;
-
-}
-
-nav ul a{
-
-text-decoration:none;
-
-color:white;
-
-font-weight:500;
-
-transition:.3s;
-
-}
-
-nav ul a:hover{
-
-color:var(--main);
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:0 10%;
-
-}
-
-.hero-content{
-
-display:grid;
-
-grid-template-columns:1.2fr .8fr;
-
-gap:70px;
-
-align-items:center;
-
-width:100%;
-
-}
-
-.hero-text h3{
-
-color:var(--main);
-
-font-size:22px;
-
-margin-bottom:15px;
-
-}
-
-.hero-text h1{
-
-font-size:72px;
-
-line-height:1.1;
-
-margin-bottom:25px;
-
-}
-
-.hero-text p{
-
-font-size:20px;
-
-line-height:1.9;
-
-color:var(--text2);
-
-margin-bottom:40px;
-
-}
-
-.buttons{
-
-display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-.btn{
-
-padding:16px 34px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.35s;
-
-}
-
-.primary{
-
-background:linear-gradient(90deg,var(--main),var(--main2));
-
-color:black;
-
-}
-
-.secondary{
-
-border:2px solid var(--main);
-
-color:white;
-
-}
-
-.btn:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 12px 30px rgba(0,212,255,.3);
-
-}
-
-.profile{
-
-display:flex;
-
-justify-content:center;
-
-}
-
-.circle{
-
-width:390px;
-
-height:390px;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#00d4ff,#00ffb7);
-
-padding:7px;
-
-animation:rotate 12s linear infinite;
-
-}
-
-.circle-inner{
-
-width:100%;
-height:100%;
-
-border-radius:50%;
-
-background:#0e1726;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:120px;
-
-}
-
-@keyframes rotate{
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-.stats{
-
-margin-top:70px;
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:25px;
-
-}
-
-.stat{
-
-background:var(--card);
-
-backdrop-filter:blur(18px);
-
-padding:28px;
-
-border-radius:22px;
-
-text-align:center;
-
-box-shadow:var(--shadow);
-
-}
-
-.stat h2{
-
-font-size:42px;
-
-background:linear-gradient(90deg,var(--main),var(--main2));
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-margin-bottom:10px;
-
-}
-
-section{
-
-padding:120px 10%;
-
-}
-
-.title{
-
-font-size:46px;
-
-margin-bottom:50px;
-
-text-align:center;
-
-}
-
-.about{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:50px;
-
-}
-
-.card{
-
-background:rgba(255,255,255,.07);
-
-backdrop-filter:blur(20px);
-
-padding:40px;
-
-border-radius:25px;
-
-box-shadow:var(--shadow);
-
-}
-
-.card h3{
-
-margin-bottom:20px;
-
-font-size:30px;
-
-color:var(--main);
-
-}
-
-.card p{
-
-line-height:2;
-
-color:var(--text2);
-
-}
-
-@media(max-width:950px){
-
-.hero-content{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.about{
-
-grid-template-columns:1fr;
-
-}
-
-.hero-text h1{
-
-font-size:48px;
-
-}
-
-nav ul{
-
-display:none;
-
-}
-
-.circle{
-
-width:280px;
-height:280px;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">CP</div>
-
-<ul>
-
-<li><a href="#about">Über mich</a></li>
-
-<li><a href="#experience">Praktika</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#contact">Kontakt</a></li>
-
-</ul>
-
-</nav>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<div class="hero-text">
-
-<h3>Willkommen auf meinem Portfolio</h3>
-
-<h1>Cristian<br>Pritsch</h1>
-
-<p>
-
-Schüler mit wirtschaftlichem Schwerpunkt und großem Interesse an Informationstechnologie, Digitalisierung und Softwareentwicklung. Durch freiwillige Praktika konnte ich bereits praktische Erfahrungen sammeln und arbeite kontinuierlich daran, meine technischen Fähigkeiten auszubauen.
-
-</p>
-
-<div class="buttons">
-
-<a href="#about" class="btn primary">
-
-Mehr erfahren
-
-</a>
-
-<a href="Lebenslauf.pdf" class="btn secondary" download>
-
-Lebenslauf
-
-</a>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-
-<h2>3+</h2>
-
-<p>Praktika</p>
-
-</div>
-
-<div class="stat">
-
-<h2>4</h2>
-
-<p>Sprachen</p>
-
-</div>
-
-<div class="stat">
-
-<h2>100%</h2>
-
-<p>Motivation</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="profile">
-
-<div class="circle">
-
-<div class="circle-inner">
-
-<i class="fa-solid fa-user"></i>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<h2 class="title">
-
-Über mich
-
-</h2>
-
-<div class="about">
-
-<div class="card">
-
-<h3>Wer ich bin</h3>
-
-<p>
-
-Ich besuche das Gymnasium Villa Elisabeth mit wirtschaftlichem Schwerpunkt und interessiere mich besonders für Informationstechnologie, künstliche Intelligenz, Digitalisierung und Softwareentwicklung. Neue Technologien motivieren mich, kontinuierlich dazuzulernen und praktische Erfahrungen zu sammeln.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Mein Ziel</h3>
-
-<p>
-
-Mein Ziel ist es, meine Kenntnisse im IT-Bereich weiter auszubauen und an spannenden Projekten mitzuwirken. Ich arbeite zuverlässig, lerne schnell und freue mich darauf, praktische Erfahrungen in der Softwareentwicklung und digitalen Wirtschaft zu sammeln.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ================= EXPERIENCE ================= -->
-
-<section id="experience">
-
-<h2 class="title">Praktische Erfahrungen</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3><i class="fa-solid fa-computer"></i> IUF Computer GmbH</h3>
-
-<h4>Praktikum EDV-Hardware</h4>
-
-<p>
-
-Einblicke in Computerhardware, technische Abläufe und den Umgang mit IT-Systemen. Während des Praktikums konnte ich mein technisches Verständnis erweitern und praktische Erfahrungen im Hardwarebereich sammeln.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3><i class="fa-solid fa-shield-halved"></i> Bundeswehr</h3>
-
-<h4>Feldjägerregiment 1</h4>
-
-<p>
-
-Freiwilliges Praktikum mit Einblicken in Organisation, Disziplin, Teamarbeit und strukturierte Arbeitsabläufe.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3><i class="fa-solid fa-lightbulb"></i> CS Com Solution GmbH</h3>
-
-<h4>Veranstaltungstechnik</h4>
-
-<p>
-
-Mitarbeit beim Aufbau technischer Systeme und Kennenlernen moderner Veranstaltungstechnik.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills">
-
-<h2 class="title">Kenntnisse & Lernfortschritt</h2>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-
-<h3>HTML & CSS</h3>
-
-<p>Ich lerne derzeit die Grundlagen der Webentwicklung und erweitere meine Kenntnisse durch eigene Projekte.</p>
-
-<div class="bar">
-<div class="fill" data-width="30"></div>
-</div>
-
-<span class="percent">Grundlagen · in Ausbildung</span>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Python</h3>
-
-<p>Aktuell im Selbststudium. Schwerpunkt auf Programmierlogik und Problemlösung.</p>
-
-<div class="bar">
-<div class="fill" data-width="20"></div>
-</div>
-
-<span class="percent">Lerne aktuell</span>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Java</h3>
-
-<p>Erste Grundlagen werden derzeit aufgebaut.</p>
-
-<div class="bar">
-<div class="fill" data-width="10"></div>
-</div>
-
-<span class="percent">Lerne aktuell</span>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Microsoft Office</h3>
-
-<p>Word, PowerPoint sowie Präsentationen gehören zu meinen täglichen Werkzeugen.</p>
-
-<div class="bar">
-<div class="fill" data-width="90"></div>
-</div>
-
-<span class="percent">Fortgeschritten</span>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= LANGUAGES ================= -->
-
-<section>
-
-<h2 class="title">Sprachen</h2>
-
-<div class="cards">
-
-<div class="mini-card">
-
-<h3>🇩🇪 Deutsch</h3>
-
-<p>Muttersprache</p>
-
-</div>
-
-<div class="mini-card">
-
-<h3>🇪🇸 Spanisch</h3>
-
-<p>Muttersprache</p>
-
-</div>
-
-<div class="mini-card">
-
-<h3>🇬🇧 Englisch</h3>
-
-<p>B2</p>
-
-</div>
-
-<div class="mini-card">
-
-<h3>🇷🇺 Russisch</h3>
-
-<p>Grundkenntnisse</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= INTERESTS ================= -->
-
-<section>
-
-<h2 class="title">Interessen</h2>
-
-<div class="cards">
-
-<div class="mini-card">
-
-<i class="fa-solid fa-microchip fa-3x"></i>
-
-<h3>Informationstechnologie</h3>
-
-</div>
-
-<div class="mini-card">
-
-<i class="fa-solid fa-robot fa-3x"></i>
-
-<h3>Künstliche Intelligenz</h3>
-
-</div>
-
-<div class="mini-card">
-
-<i class="fa-solid fa-code fa-3x"></i>
-
-<h3>Softwareentwicklung</h3>
-
-</div>
-
-<div class="mini-card">
-
-<i class="fa-solid fa-chart-line fa-3x"></i>
-
-<h3>Digitalisierung</h3>
-
-</div>
-
-<div class="mini-card">
-
-<i class="fa-solid fa-dumbbell fa-3x"></i>
-
-<h3>Fitness</h3>
-
-</div>
-
-<div class="mini-card">
-
-<i class="fa-solid fa-chess fa-3x"></i>
-
-<h3>Schach</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<style>
-
-.timeline{
-
-max-width:900px;
-
-margin:auto;
-
-position:relative;
-
-}
-
-.timeline::before{
-
-content:"";
-
-position:absolute;
-
-left:20px;
-
-top:0;
-
-width:4px;
-
-height:100%;
-
-background:#00d4ff;
-
-}
-
-.timeline-item{
-
-display:flex;
-
-margin-bottom:50px;
-
-position:relative;
-
-padding-left:70px;
-
-}
-
-.timeline-dot{
-
-width:18px;
-
-height:18px;
-
-background:#00ffb7;
-
-border-radius:50%;
-
-position:absolute;
-
-left:12px;
-
-top:8px;
-
-box-shadow:0 0 20px #00ffb7;
-
-}
-
-.timeline-content{
-
-background:rgba(255,255,255,.08);
-
-padding:25px;
-
-border-radius:18px;
-
-backdrop-filter:blur(20px);
-
-transition:.4s;
-
-}
-
-.timeline-content:hover{
-
-transform:translateY(-8px);
-
-}
-
-.timeline-content h3{
-
-margin-bottom:10px;
-
-color:#00d4ff;
-
-}
-
-.timeline-content h4{
-
-margin-bottom:15px;
-
-font-weight:500;
-
-color:#ddd;
-
-}
-
-.skills-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-
-}
-
-.skill-card{
-
-background:rgba(255,255,255,.08);
-
-padding:25px;
-
-border-radius:20px;
-
-}
-
-.bar{
-
-margin-top:15px;
-
-height:12px;
-
-background:#23384f;
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.bar span{
-
-display:block;
-
-height:100%;
-
-background:linear-gradient(90deg,#00d4ff,#00ffb7);
-
-animation:grow 2s;
-
-}
-
-@keyframes grow{
-
-from{
-
-width:0;
-
-}
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-.mini-card{
-
-background:rgba(255,255,255,.08);
-
-padding:35px;
-
-text-align:center;
-
-border-radius:20px;
-
-transition:.35s;
-
-}
-
-.mini-card:hover{
-
-transform:translateY(-12px);
-
-background:rgba(255,255,255,.12);
-
-}
-
-.mini-card i{
-
-margin-bottom:20px;
-
-background:linear-gradient(90deg,#00d4ff,#00ffb7);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-  .project-subtitle{
-
-max-width:850px;
-
-margin:auto;
-
-margin-bottom:70px;
-
-text-align:center;
-
-font-size:18px;
-
-color:#a9bfd4;
-
-line-height:1.8;
-
-}
-
-.project-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:35px;
-
-}
-
-.project-card{
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(20px);
-
-padding:35px;
-
-border-radius:25px;
-
-transition:.35s;
-
-box-shadow:0 15px 35px rgba(0,0,0,.25);
-
-display:flex;
-
-flex-direction:column;
-
-}
-
-.project-card:hover{
-
-transform:translateY(-12px);
-
-}
-
-.project-icon{
-
-width:70px;
-
-height:70px;
-
-border-radius:18px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
-
-margin-bottom:25px;
-
-background:linear-gradient(135deg,#00d4ff,#00ffb7);
-
-color:#08121f;
-
-}
-
-.project-card h3{
-
-font-size:28px;
-
-margin-bottom:18px;
-
-}
-
-.project-card p{
-
-line-height:1.9;
-
-color:#c4d3df;
-
-margin-bottom:25px;
-
-}
-
-.tech{
-
-display:flex;
-
-gap:10px;
-
-flex-wrap:wrap;
-
-margin-bottom:25px;
-
-}
-
-.tech span{
-
-padding:8px 15px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.08);
-
-font-size:14px;
-
-color:#00d4ff;
-
-border:1px solid rgba(255,255,255,.08);
-
-}
-
-.status{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:12px 18px;
-
-border-radius:40px;
-
-font-weight:600;
-
-margin-top:auto;
-
-}
-
-.finished{
-
-background:rgba(46,204,113,.15);
-
-color:#2ecc71;
-
-border:1px solid #2ecc71;
-
-}
-
-.progress{
-
-background:rgba(241,196,15,.15);
-
-color:#f1c40f;
-
-border:1px solid #f1c40f;
-
-}
-  /* Scroll Animation */
-
-.hidden{
-
-opacity:0;
-
-transform:translateY(70px);
-
-transition:1s;
-
-}
-
-.visible{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-/* Back Button */
-
-#topBtn{
-
-position:fixed;
-
-right:35px;
-
-bottom:35px;
-
-width:55px;
-
-height:55px;
-
-border:none;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#00d4ff,#00ffb7);
-
-font-size:22px;
-
-cursor:pointer;
-
-opacity:0;
-
-pointer-events:none;
-
-transition:.35s;
-
-box-shadow:0 10px 25px rgba(0,212,255,.35);
-
-z-index:9999;
-
-}
-
-#topBtn.show{
-
-opacity:1;
-
-pointer-events:auto;
-
-}
-
-#topBtn:hover{
-
-transform:translateY(-6px);
-
-}
-
-
-/* Hover */
-
-.project-card:hover,
-.skill-card:hover,
-.card:hover,
-.mini-card:hover{
-
-transform:translateY(-12px) scale(1.02);
-
-}
-
-
-/* Scrollbar */
-
-::-webkit-scrollbar{
-
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#08121f;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:linear-gradient(#00d4ff,#00ffb7);
-
-border-radius:30px;
-
-}
-
-
-/* Selection */
-
-::selection{
-
-background:#00d4ff;
-
-color:#08121f;
-
-}
-  
-<section id="contact">
-
-<h2 class="title">Kontakt</h2>
-
-<div class="contact-box">
-
-<div class="contact-info">
-
-<h3>Kontakt aufnehmen</h3>
-
-<p>📧 cristian.pritsch1@gmail.com</p>
-
-<p>📱 +49 151 56607231</p>
-
-<p>📍 Berlin, Deutschland</p>
-
-<p>
-Ich freue mich über Anfragen zu Praktika, Ausbildungsplätzen
-oder spannenden Projekten im IT-Bereich.
-</p>
-
-<div class="buttons">
-
-<a href="mailto:cristian.pritsch1@gmail.com" class="btn primary">
-
-<i class="fa-solid fa-envelope"></i>
-
-E-Mail schreiben
-
-</a>
-
-<a href="Lebenslauf.pdf" class="btn secondary" download>
-
-<i class="fa-solid fa-file-arrow-down"></i>
-
-Lebenslauf
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-  </section>
-  
-footer{
-
-background:#050b14;
-
-padding:70px;
-
-margin-top:120px;
-
-text-align:center;
-
-border-top:1px solid rgba(255,255,255,.08);
-
-}
-<section id="contact">
-
-<h2 class="title">Kontakt</h2>
-
-<div class="contact-box">
-
-<div class="contact-info">
-
-<h3>Kontakt aufnehmen</h3>
-
-<p>📧 cristian.pritsch1@gmail.com</p>
-
-<p>📱 +49 151 56607231</p>
-
-<p>📍 Berlin, Deutschland</p>
-
-<p>
-Ich freue mich über Anfragen zu Praktika, Ausbildungsplätzen
-oder spannenden Projekten im IT-Bereich.
-</p>
-
-<div class="buttons">
-
-<a href="mailto:cristian.pritsch1@gmail.com" class="btn primary">
-
-<i class="fa-solid fa-envelope"></i>
-
-E-Mail schreiben
-
-</a>
-
-<a href="Lebenslauf.pdf" class="btn secondary" download>
-
-<i class="fa-solid fa-file-arrow-down"></i>
-
-Lebenslauf
-
-  </section>
-
-footer h2{
-
-font-size:34px;
-
-margin-bottom:20px;
-
-}
-footer p{
-
-color:#9db3c7;
-
-line-height:1.8;
-
-}
-
-/* HIER EINFÜGEN */
-
-.project-subtitle{
-...
-}
-
-.project-grid{
-...
-}
-
-.project-card{
-...
-}
-
-...
-
-footer p{
-
-color:#9eb3c8;
-
-line-height:2;
-
-}
-<section id="motivation">
-
-    <h2 class="title">Warum Informationstechnologie?</h2>
-
-    <div class="motivation-box">
-
-        <p>
-            Technologie fasziniert mich, weil sie ständig neue Möglichkeiten schafft,
-            Probleme zu lösen und innovative Ideen umzusetzen. Besonders begeistert
-            mich die Softwareentwicklung, da sie Kreativität mit logischem Denken
-            verbindet.
-        </p>
-
-        <p>
-            Derzeit erweitere ich meine Kenntnisse in HTML, CSS, JavaScript, Python
-            und Java durch eigenes Lernen sowie praktische Projekte. Mein Ziel ist es,
-            meine Fähigkeiten kontinuierlich auszubauen und wertvolle Erfahrungen in
-            einem professionellen IT-Umfeld zu sammeln.
-        </p>
-
-        <p>
-            Ich arbeite zuverlässig, lerne schnell und freue mich darauf, mich neuen
-            Herausforderungen zu stellen. Besonders motiviert mich die Möglichkeit,
-            gemeinsam mit erfahrenen Entwicklerinnen und Entwicklern an modernen
-            Technologien mitzuwirken und mich fachlich wie persönlich weiterzuentwickeln.
-        </p>
-
-    </div>
-  </section>
-
-/* Buttons Animation */
-
-.btn{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.btn::before{
-
-content:"";
-
-position:absolute;
-
-left:-120%;
-
-top:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(255,255,255,.25);
-
-transform:skewX(-30deg);
-
-transition:.6s;
-
-}
-
-.btn:hover::before{
-
-left:140%;
 
 #background{
     position:fixed;
@@ -1558,324 +43,545 @@ left:140%;
     width:100%;
     height:100%;
     z-index:-1;
-    background:#08121f;
 }
 
-body{
-    background:transparent;
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    background:rgba(15,23,42,.92);
+    backdrop-filter:blur(12px);
+    z-index:1000;
 }
-  
-  <!-- ================= PROJECTS ================= -->
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 25px;
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:24px;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+.navbar a:hover{
+    color:#38bdf8;
+}
+
+.hero{
+    max-width:1200px;
+    margin:130px auto 80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    padding:20px;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+.hero-text span{
+    color:#38bdf8;
+}
+
+.hero-text h3{
+    font-weight:500;
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:18px;
+    color:#d5dbe6;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    width:320px;
+    height:320px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 35px rgba(56,189,248,.35);
+}
+
+section{
+    max-width:1100px;
+    margin:100px auto;
+    padding:20px;
+}
+
+.title{
+    text-align:center;
+    font-size:36px;
+    color:#38bdf8;
+    margin-bottom:45px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    padding:35px;
+    border-radius:18px;
+    backdrop-filter:blur(10px);
+}
+
+.card p{
+    margin-bottom:18px;
+    color:#d8dee9;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.skill{
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:16px;
+}
+
+.skill h3{
+    margin-bottom:15px;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:#1e293b;
+    border-radius:30px;
+    overflow:hidden;
+    margin-bottom:12px;
+}
+
+.fill{
+    height:100%;
+    border-radius:30px;
+}
+
+.html{
+    width:40%;
+    background:#38bdf8;
+}
+
+.css{
+    width:40%;
+    background:#38bdf8;
+}
+
+.python{
+    width:60%;
+    background:#38bdf8;
+}
+
+.java{
+    width:40%;
+    background:#38bdf8;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:rgba(255,255,255,.05);
+    border-radius:18px;
+    padding:30px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+}
+
+.project h3{
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+}
+
+.primary{
+    background:#38bdf8;
+    color:white;
+}
+
+.primary:hover{
+    background:#0ea5e9;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.secondary:hover{
+    background:#38bdf8;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,.08);
+    margin-top:80px;
+}
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-image img{
+    width:240px;
+    height:240px;
+}
+
+.hero-text h1{
+    font-size:38px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+.navbar ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.title{
+    font-size:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="background"></canvas>
+
+<header>
+
+<nav class="navbar">
+
+<h2 class="logo">Cristian Pritsch</h2>
+
+<ul>
+
+<li><a href="#home">Start</a></li>
+
+<li><a href="#about">Über mich</a></li>
+
+<li><a href="#skills">Kenntnisse</a></li>
+
+<li><a href="#projects">Projekte</a></li>
+
+<li><a href="#contact">Kontakt</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>Hallo, ich bin <span>Cristian Pritsch</span></h1>
+
+<h3>Angehender IT-Fachinformatiker</h3>
+
+<p>
+
+Ich interessiere mich für Softwareentwicklung und Informationstechnologie.
+Zurzeit erweitere ich meine Kenntnisse in HTML, CSS, Java und Python
+durch eigenständiges Lernen und praktische Projekte. Mein Ziel ist es,
+mich fachlich weiterzuentwickeln und wertvolle Praxiserfahrung im IT-Bereich
+zu sammeln.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn primary">Meine Projekte</a>
+
+<a href="Lebenslauf.pdf" class="btn secondary" download>Lebenslauf</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="profil.jpg" alt="Cristian Pritsch">
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">Über mich</h2>
+
+<div class="card">
+
+<p>
+
+Mein Name ist Cristian Pritsch und ich beschäftige mich mit großer
+Begeisterung mit Informationstechnologie. Besonders interessieren mich
+die Bereiche Softwareentwicklung, Webentwicklung und moderne digitale
+Technologien.
+
+</p>
+
+<p>
+
+Aktuell eigne ich mir Kenntnisse in HTML, CSS, Java und Python im
+Selbststudium an. Das Gelernte setze ich direkt in kleinen Projekten um,
+um meine Fähigkeiten kontinuierlich zu verbessern und praktische
+Erfahrungen zu sammeln.
+
+</p>
+
+<p>
+
+Ich arbeite zuverlässig, bin motiviert Neues zu lernen und freue mich
+darauf, mein Wissen in einem professionellen Unternehmen weiter
+auszubauen. Mein Ziel ist es, langfristig als Softwareentwickler tätig
+zu sein und mich fachlich stetig weiterzuentwickeln.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">Kenntnisse</h2>
+
+<div class="skills">
+
+<div class="skill">
+
+<h3>HTML</h3>
+
+<div class="bar">
+
+<div class="fill html"></div>
+
+</div>
+
+<p>★★☆☆☆ – Grundkenntnisse (derzeit im Selbststudium)</p>
+
+</div>
+
+<div class="skill">
+
+<h3>CSS</h3>
+
+<div class="bar">
+
+<div class="fill css"></div>
+
+</div>
+
+<p>★★☆☆☆ – Grundkenntnisse (lerne kontinuierlich weiter)</p>
+
+</div>
+
+<div class="skill">
+
+<h3>Python</h3>
+
+<div class="bar">
+
+<div class="fill python"></div>
+
+</div>
+
+<p>★★★☆☆ – Gute Grundlagen</p>
+
+</div>
+
+<div class="skill">
+
+<h3>Java</h3>
+
+<div class="bar">
+
+<div class="fill java"></div>
+
+</div>
+
+<p>★★☆☆☆ – Grundlagen</p>
+
+</div>
+
+</div>
+
+</section>
 
 <section id="projects">
 
-<h2 class="title">Meine Projekte</h2>
+<h2 class="title">Kleine Projekte</h2>
 
-<p class="project-subtitle">
+<div class="projects">
 
-Ich lerne kontinuierlich Webentwicklung und Programmiersprachen durch eigene Projekte.
-Jedes Projekt hilft mir dabei, praktische Erfahrungen zu sammeln und meine Kenntnisse zu erweitern.
+<div class="project">
 
-</p>
-
-<div class="project-grid">
-
-<!-- Portfolio -->
-
-<div class="project-card">
-
-<div class="project-icon">
-<i class="fa-solid fa-laptop-code"></i>
-</div>
-
-<h3>Portfolio Website</h3>
+<h3>Persönliche Portfolio-Website</h3>
 
 <p>
 
-Entwicklung einer modernen Portfolio-Website mit HTML, CSS und JavaScript.
-Responsive Design, Animationen, Lebenslauf-Download und mobile Optimierung.
+Entwicklung einer eigenen Portfolio-Website mit HTML und CSS zur
+Präsentation meiner Kenntnisse und Projekte.
 
 </p>
 
-<div class="tech">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-
 </div>
 
-<div class="status finished">
+<div class="project">
 
-🟢 Abgeschlossen
-
-</div>
-
-</div>
-
-
-<!-- Notenrechner -->
-
-<div class="project-card">
-
-<div class="project-icon">
-<i class="fa-solid fa-calculator"></i>
-</div>
-
-<h3>Notenrechner</h3>
+<h3>Passwortgenerator (Python)</h3>
 
 <p>
 
-Eine Webanwendung zur Berechnung von Notendurchschnitten.
-Mehrere Noten können eingegeben werden, der Durchschnitt wird automatisch berechnet.
+Kleines Python-Programm zur Erstellung sicherer Zufallspasswörter mit
+individuell wählbarer Länge.
 
 </p>
 
-<div class="tech">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-
 </div>
 
-<div class="status progress">
+<div class="project">
 
-🟡 In Entwicklung
-
-</div>
-
-</div>
-
-
-<!-- Passwortgenerator -->
-
-<div class="project-card">
-
-<div class="project-icon">
-<i class="fa-solid fa-key"></i>
-</div>
-
-<h3>Passwortgenerator</h3>
+<h3>Notendurchschnitt-Rechner (Java)</h3>
 
 <p>
 
-Erzeugt sichere Passwörter mit frei wählbarer Länge,
-Zahlen, Sonderzeichen sowie Groß- und Kleinbuchstaben.
+Konsolenprogramm zur Berechnung eines Notendurchschnitts anhand
+mehrerer eingegebener Schulnoten.
 
 </p>
-
-<div class="tech">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-
-</div>
-
-<div class="status progress">
-
-🟡 In Entwicklung
-
-</div>
 
 </div>
 
 </div>
 
 </section>
-  <!-- Back To Top -->
 
-<button id="topBtn">
+<section id="contact">
 
-<i class="fa-solid fa-arrow-up"></i>
+<h2 class="title">Kontakt</h2>
 
-</button>
+<div class="card">
 
-<script>
+<p>
 
-// Back to top
+Vielen Dank für Ihren Besuch auf meiner Portfolio-Website.
+Ich freue mich über Anfragen zu Praktika, Ausbildungsplätzen
+oder spannenden IT-Projekten.
 
-const topBtn=document.getElementById("topBtn");
+</p>
 
-window.addEventListener("scroll",()=>{
+<p>
 
-if(window.scrollY>500){
+📧 cristian.pritsch1@gmail.com
 
-topBtn.classList.add("show");
+</p>
 
-}else{
+<p>
 
-topBtn.classList.remove("show");
+📱 +49 151 56607231
 
-}
+</p>
 
-});
+<p>
 
-topBtn.onclick=()=>{
+📍 Berlin, Deutschland
 
-window.scrollTo({
+</p>
 
-top:0,
+<a href="mailto:cristian.pritsch1@gmail.com" class="btn primary">
 
-behavior:"smooth"
+E-Mail schreiben
 
-});
+</a>
 
-};
-<script>
-
-const canvas = document.getElementById("background");
-const ctx = canvas.getContext("2d");
-
-let w,h;
-let particles=[];
-
-function resize(){
-    w=canvas.width=window.innerWidth;
-    h=canvas.height=window.innerHeight;
-}
-
-window.addEventListener("resize",resize);
-resize();
-
-class Particle{
-
-    constructor(){
-
-        this.x=Math.random()*w;
-        this.y=Math.random()*h;
-
-        this.vx=(Math.random()-0.5)*0.3;
-        this.vy=(Math.random()-0.5)*0.3;
-
-        this.r=Math.random()*2+1;
-
-    }
-
-    move(){
-
-        this.x+=this.vx;
-        this.y+=this.vy;
-
-        if(this.x<0||this.x>w)this.vx*=-1;
-        if(this.y<0||this.y>h)this.vy*=-1;
-
-    }
-
-    draw(){
-
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-        ctx.fillStyle="rgba(0,212,255,.8)";
-        ctx.fill();
-
-    }
-
-}
-
-for(let i=0;i<90;i++){
-
-    particles.push(new Particle());
-
-}
-
-function animate(){
-
-    ctx.clearRect(0,0,w,h);
-
-    for(let p of particles){
-
-        p.move();
-        p.draw();
-
-    }
-
-    for(let i=0;i<particles.length;i++){
-
-        for(let j=i+1;j<particles.length;j++){
-
-            let dx=particles[i].x-particles[j].x;
-            let dy=particles[i].y-particles[j].y;
-
-            let dist=Math.sqrt(dx*dx+dy*dy);
-
-            if(dist<130){
-
-                ctx.beginPath();
-
-                ctx.moveTo(particles[i].x,particles[i].y);
-
-                ctx.lineTo(particles[j].x,particles[j].y);
-
-                ctx.strokeStyle="rgba(0,212,255,"+(1-dist/130)*0.18+")";
-
-                ctx.stroke();
-
-            }
-
-        }
-
-    }
-
-    requestAnimationFrame(animate);
-
-}
-
-animate();
-
-</script>
-  <section id="contact">
-
-    <h2 class="title">Kontakt</h2>
-
-    <div class="contact-card">
-
-        <h3>Ich freue mich auf Ihre Nachricht.</h3>
-
-        <p>
-            Sie können mich jederzeit per E-Mail oder telefonisch kontaktieren.
-        </p>
-
-        <div class="contact-info">
-
-            <div>
-                <i class="fa-solid fa-envelope"></i>
-                <span>cristian.pritsch1@gmail.com</span>
-            </div>
-
-            <div>
-                <i class="fa-solid fa-phone"></i>
-                <span>+49 151 56607231</span>
-            </div>
-
-            <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Berlin, Deutschland</span>
-            </div>
-
-        </div>
-
-        <div class="buttons">
-
-            <a href="mailto:cristian.pritsch1@gmail.com" class="btn primary">
-
-                E-Mail schreiben
-
-            </a>
-
-            <a href="Lebenslauf.pdf" class="btn secondary" download>
-
-                Lebenslauf herunterladen
-
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-      
+
+<footer>
+
+<p>
+
+© 2025 Cristian Pritsch • Portfolio
+
+</p>
+
+</footer>
+
+<script>
+
 </body>
-  <canvas id="background"></canvas>
+
 </html>
