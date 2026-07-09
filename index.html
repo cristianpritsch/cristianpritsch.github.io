@@ -131,15 +131,15 @@ header{
     text-align:center;
 }
 
-.hero-image img{
+.profile img{
     width:320px;
     height:320px;
-    object-fit:cover;
     border-radius:50%;
-    border:5px solid #38bdf8;
-    box-shadow:0 0 35px rgba(56,189,248,.35);
+    object-fit:cover;
+    object-position:center top;
+    border:5px solid #00d4ff;
 }
-
+    
 section{
     max-width:1100px;
     margin:100px auto;
@@ -571,16 +571,12 @@ E-Mail schreiben
 </section>
 
 <footer>
-
-<p>
-
-© 2025 Cristian Pritsch • Portfolio
-
-</p>
-
+    <p>© <span id="year"></span> Cristian Pritsch • Portfolio</p>
 </footer>
 
 <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 
